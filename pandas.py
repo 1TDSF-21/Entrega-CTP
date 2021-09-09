@@ -2,7 +2,7 @@
 import pandas as pd
 
 
-sheet = pd.read_excel(r"C:\Users\joaom\Desktop\notas_planilha_modelo (1).xlsx")#pegar o caminho do seu pc
+sheet = pd.read_excel(r"./notas_planilha_modelo.xlsx")#pegar o caminho do seu pc
 #teste de func
 def mediaCp(x):
     n1 = sheet['checkpoint1'][x]
