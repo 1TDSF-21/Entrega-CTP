@@ -2,7 +2,7 @@
 import pandas as pd
 
 sheet = pd.read_excel(
-    r"notas_planilha_modelo_reprovados.xlsx", skiprows=(0, 1)
+    r"notas_planilha_modelo.xlsx", skiprows=(0, 1)
 )  # pegar o caminho do seu pc
 
 aprovado = False
@@ -71,24 +71,3 @@ def calcular_nota(x, showPrint=True):
 x = int(input("Digite o índice das notas (0 por exemplo): "))
 
 calcular_nota(x)
-
-
-def aluno_reprovado():
-    print("\033[31m ------ Lista de reprovação ------ \033[0;0m")
-    for index in range(len(sheet)):
-        if calcular_nota(index, False):
-            print(
-                f"\033[31m RM: {sheet['RM'][index]}, Nome: {sheet['Nome'][index]} \033[0;0m"
-            )
-
-
-def aluno_aprovado():
-    print("\033[92m ------ Lista de aprovação ------ \033[92m")
-    for index in range(len(sheet)):
-        if not calcular_nota(index, False):
-            print(
-                f"\033[1;32;40m RM: {sheet['RM'][index]}, Nome: {sheet['Nome'][index]}"
-            )
-
-
-aluno_reprovado()
