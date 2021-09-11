@@ -39,16 +39,9 @@ def calcular_nota(x, showPrint=True):
         ((media_s2 - media_cp_ch) / 0.6), 2
     )  # Nota necessária na GS para ser aprovado no 2o semestre
 
-    if nota_necessaria_GS > 10:
-        reprovado = True
- 
 
-    if media_s2 <= 4 and media_cp_ch == 4:
-        aprovado = True
-        nota_necessaria_GS = 0
-        return "aprovadoSemGS"
 
-    elif media_s2 < 4:
+    if media_s2 < 4:
         nota_necessaria_GS = 4 - media_cp_ch
       
 
@@ -68,7 +61,15 @@ def calcular_nota(x, showPrint=True):
             "\n\n",
         )
 
-    return reprovado
+    if nota_necessaria_GS > 10:
+        reprovado = True
+        return "reprovadoDireto"
+
+
+    if media_s2 <= 4 and media_cp_ch == 4:
+        aprovado = True
+        nota_necessaria_GS = 0
+        return "aprovadoSemGS"
 
 
 x = int(input("Digite o índice das notas (0 por exemplo): "))
