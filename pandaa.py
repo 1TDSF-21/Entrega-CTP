@@ -41,13 +41,16 @@ def calcular_nota(x, showPrint=True):
 
     if nota_necessaria_GS > 10:
         reprovado = True
+ 
 
     if media_s2 <= 4 and media_cp_ch == 4:
         aprovado = True
         nota_necessaria_GS = 0
+        return "aprovadoSemGS"
 
     elif media_s2 < 4:
         nota_necessaria_GS = 4 - media_cp_ch
+      
 
     if showPrint:
         print(
